@@ -1,0 +1,9 @@
+<app-view [data]='wsData.sidebarRoutes' [modelStr]='wsData.modelStr'>
+    <app-panel title='Controls'>
+        <app-inputfield
+            title='Input'
+            [(ngModel)]='settingsData.value'
+            name='input'>
+        </app-inputfield>
+    </app-panel>
+</app-view>

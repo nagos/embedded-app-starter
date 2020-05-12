@@ -1,0 +1,61 @@
+@import "colors.less";
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    color: @row-text;
+  }
+
+hr {
+    border: 0;
+    border-top: 2px solid lighten(@navbar-text, 15%);
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+
+.right-align {
+    text-align: right;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.btn:focus {
+    border-color: rgba(243,243,244,0.5);
+    border-width: 0.0625rem;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.12rem  rgba(243, 243, 244, 0.5);
+    box-shadow: 0 0 0 0.12rem rgba(243,243,244,0.5);
+}
+
+.form-control:focus {
+    border-color: white;
+    -webkit-box-shadow: 0 0 0 0.12rem  rgba(68, 175, 105, 0.25);
+    box-shadow: 0 0 0 0.12rem rgba(68, 175, 105, 0.25);
+}
+
+.btn-fixed-width {
+    min-width: 6em;
+    // убираем "подпрыгивание" border
+    color: white;
+    // добавляем расстояние между кнопками
+    margin-left: 1em;
+    &:first-child{
+        margin-left: 0em;
+    }
+
+    @media (max-width: 768px) {
+        margin-top: 10px;
+    }
+
+    &[disabled] {
+        color: darken(white, 15%);
+        opacity: 0.4;
+    }
+}

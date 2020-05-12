@@ -1,0 +1,12 @@
+<div id="loading_dialog" [hidden]="connectionStatus.first">
+  <img src="assets/ajax-loader.gif">  Loading, please wait
+</div>
+<div id="connection_dialog" [hidden]="connectionStatus.value">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+    </div>
+    <div class="panel-body ">
+      <h2>Connection lost</h2>
+    </div>
+  </div>
+</div>

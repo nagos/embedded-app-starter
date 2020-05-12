@@ -1,0 +1,35 @@
+<div class="wrapper">
+
+        <!-- Через [className] убираем sidebar -->
+        <nav id="sidebar" [className]="isCollapsed?'active' : ''">
+            <div class="sidebar-header pb-0">
+                <h5>{{modelStr}}</h5>
+            </div>
+
+            <!-- Данные в переменной data -->
+            <ul class="list-unstyled components">
+                <li *ngFor="let item of data; let i = index" [className]="(getIndex()==i)?'active' : ''">
+                    <a [routerLink]="item.link" data-toggle='collapse' aria-expanded="false" (click)='isCollapsed=!isCollapsed'>
+                        <span>{{item.label}}</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <!-- Page Content -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn navbar-btn" (click)='isCollapsed=!isCollapsed'>
+                        <i class="fas fa-align-left"></i>
+                    </button>
+
+                </div>
+            </nav>
+
+            <ng-content></ng-content>
+        </div>
+
+</div>

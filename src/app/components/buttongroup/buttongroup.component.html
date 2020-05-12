@@ -1,0 +1,10 @@
+<app-fieldbody [title]='title'>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn buttongroup"
+            *ngFor="let item of buttons; let i = index"
+            [ngClass]="{'active': value===i}"
+            (click)='changeValue(i)'
+            [disabled]="isDisabled"
+        >{{item}}</button>
+    </div>
+</app-fieldbody>

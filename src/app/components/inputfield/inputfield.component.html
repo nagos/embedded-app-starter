@@ -1,0 +1,3 @@
+<app-fieldbody [title]='title'>
+    <input [type]="type" class="form-control" [min]="min" [max]="max" [(ngModel)]="val" (ngModelChange)="changeValue(val)" [disabled]="isDisabled">
+</app-fieldbody>
