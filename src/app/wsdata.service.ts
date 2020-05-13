@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { WebsocketService, Message } from './websocket.service';
 import { HttpClient } from '@angular/common/http';
+import { Title } from '@angular/platform-browser';
 import { Version, SettingsData } from './datatypes';
 import { copyArray } from './tools';
 
@@ -26,9 +27,10 @@ export class WsdataService {
         value: 'test',
     };
 
-    constructor(public wsService: WebsocketService, private http: HttpClient) {
+    constructor(public wsService: WebsocketService, private http: HttpClient, private titleService: Title) {
         this.show_version();
         wsService.subscribe((msg) => this.message(msg));
+        this.titleService.setTitle(this.modelStr);
     }
 
     public sendSettings(): void {
