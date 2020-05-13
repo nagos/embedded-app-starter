@@ -27,9 +27,7 @@ export class WsdataService {
     };
 
     constructor(public wsService: WebsocketService, private http: HttpClient) {
-        wsService.subscribe_new_connection(() => {
-            this.show_version();
-        });
+        this.show_version();
         wsService.subscribe((msg) => this.message(msg));
     }
 

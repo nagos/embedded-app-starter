@@ -5,5 +5,11 @@
             [(ngModel)]='settingsData.value'
             name='input'>
         </app-inputfield>
+        <app-inputfield
+            title='Fronetend version'
+            disabled
+            [(ngModel)]='wsData.version.frontend_version'
+            name='frontend_version'>
+        </app-inputfield>
     </app-panel>
 </app-view>
