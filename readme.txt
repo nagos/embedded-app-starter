@@ -1,4 +1,4 @@
-WEB интерфейс модуля pbx-mtv-508.
+Заготовка web интерфейса на Angular 9
 
 
 Первоначальная установка проекта
@@ -17,26 +17,15 @@ npm run build
 
 scp -r dist/* root@192.168.x.x:/www/pages/
 
-Расширение для Chrome
-https://augury.angular.io/
 
-Создание новых компонентов по шаблону
-Компонент будет автоматически прописан в app.module.ts
-(declarations и import)
-компонент будет иметь имя суффиикс Component
+Иконки FontAwesome 5
+https://fontawesome.com/icons
+(нужно импортировать индивидуально в app.module.ts
+=======================================
+import { faTimesCircle, faClock, faCog, faChevronCircleLeft, faAlignLeft } from '@fortawesome/free-solid-svg-icons';
+library.add(faTimesCircle, faClock, faCog, faChevronCircleLeft, faAlignLeft);
+dom.watch();
 
-Команда
-ng generate component block
-создает BlockComponent в папке src/app/block
+<i class="fas fa-chevron-circle-left brand-font" aria-hidden="true" title="Settings" routerLink="/"
+=======================================
 
-
-Создание компонентов для страниц route
-ng generate component main --flat
-
---flat - создать в корневой папке
-
-Отладка в VS Code
-Установить расширение Debugger for Chrome
-
-Иконки FontAwesome 4
-https://fontawesome.com/icons?d=gallery&m=free

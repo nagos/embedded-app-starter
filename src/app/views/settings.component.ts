@@ -21,12 +21,4 @@ export class SettingsComponent implements AfterViewInit {
     ngAfterViewInit() {
         this.newdata();
     }
-
-    soloOnChange(value: {enable: number, input: number}) {
-        this.wsData.sendSettings();
-    }
-
-    public presetChanged(preset: number) {
-    }
-
 }

@@ -25,6 +25,10 @@ export class WsdataService {
     // хранение данных
     public settingsData: SettingsData = {
         value: 'test',
+        valueint: 0,
+        valueselect: 0,
+        valuebutton: 0,
+        timeZone: 'Europe/Moscow',
     };
 
     constructor(public wsService: WebsocketService, private http: HttpClient, private titleService: Title) {
@@ -34,8 +38,7 @@ export class WsdataService {
     }
 
     public sendSettings(): void {
-        this.send('set_settings', {
-        });
+        this.send('set_settings', this.settingsData);
     }
 
     /**
@@ -45,6 +48,7 @@ export class WsdataService {
     message(msg: Message): void {
         switch (msg.type) {
             case 'settings': {
+                Object.assign(this.settingsData, msg.data);
                 this.newData.next();
                 break;
             }

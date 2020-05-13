@@ -5,4 +5,8 @@ export interface Version {
 
 export interface SettingsData {
     value: string;
+    valueint: number;
+    valueselect: number;
+    valuebutton: number;
+    timeZone: string;
 }

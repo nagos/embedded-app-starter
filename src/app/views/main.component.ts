@@ -8,9 +8,11 @@ import { WsdataService } from '../wsdata.service';
 })
 export class MainComponent implements AfterViewInit {
 
-    @ViewChild('statusForm', {static: false}) statusForm: NgForm;
+    @ViewChild('settingsForm', {static: false}) settingsForm: NgForm;
 
     public settingsData = this.wsData.settingsData;
+    public disabled = 0;
+    public hidden = 0;
 
     newdata(): void {
         this.settingsData = this.wsData.copySettings();
@@ -24,11 +26,15 @@ export class MainComponent implements AfterViewInit {
         this.newdata();
     }
 
-    soloOnChange(value: {enable: number, input: number}) {
+    public sendForm() {
+        this.wsData.readSettings(this.settingsData);
         this.wsData.sendSettings();
+        this.settingsForm.form.markAsPristine();
     }
 
-    public presetChanged(preset: number) {
+    public resetForm() {
+        this.settingsForm.form.markAsPristine();
+        this.newdata();
     }
 
 }

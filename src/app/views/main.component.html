@@ -1,15 +1,73 @@
 <app-view [data]='wsData.sidebarRoutes' [modelStr]='wsData.modelStr'>
-    <app-panel title='Controls'>
-        <app-inputfield
-            title='Input'
-            [(ngModel)]='settingsData.value'
-            name='input'>
-        </app-inputfield>
-        <app-inputfield
-            title='Fronetend version'
-            disabled
-            [(ngModel)]='wsData.version.frontend_version'
-            name='frontend_version'>
-        </app-inputfield>
+    <app-panel title='Form'>
+        <form #settingsForm="ngForm">
+            <app-inputfield
+                title='String'
+                [(ngModel)]='settingsData.value'
+                name='value'
+                [disabled]='disabled'
+                [hidden]='hidden'
+                >
+            </app-inputfield>
+
+            <app-inputfield
+                title='Integer'
+                type='number'
+                min='-5'
+                max=5
+                [(ngModel)]='settingsData.valueint'
+                name='valueint'
+                [disabled]='disabled'
+                [hidden]='hidden'
+            >
+            </app-inputfield>
+
+            <app-selectfield title='Select'
+                [(ngModel)]="settingsData.valueselect"
+                name="valueselect"
+                [disabled]='disabled'
+                [hidden]='hidden'
+            >
+                <option [value]="0">Disabled</option>
+                <option [value]="1">Enabled</option>
+            </app-selectfield>
+
+            <app-panelhr></app-panelhr>
+
+            <app-buttongroup
+                title='Button group'
+                [buttons]='["A", "B"]'
+                name='valuebutton'
+                [(ngModel)]='settingsData.valuebutton'
+                [disabled]='disabled'
+                [hidden]='hidden'
+            >
+            </app-buttongroup>
+            <app-timezone
+                title='Timezone'
+                [(ngModel)]='settingsData.timeZone'
+                name='timeZone'
+                [disabled]='disabled'
+                [hidden]='hidden'
+            >
+            </app-timezone>
+            <app-setcancelbutton (apply)='sendForm()' (cancel)="resetForm()" [disabled]="settingsForm.pristine"></app-setcancelbutton>
+        </form>
+    </app-panel>
+    <app-panel title='Attributes'>
+        <app-selectfield title='Disabled'
+            [(ngModel)]='disabled'
+            name="disabled"
+        >
+            <option [value]="0">Enabled</option>
+            <option [value]="1">Disabled</option>
+        </app-selectfield>
+        <app-selectfield title='Hidden'
+            [(ngModel)]='hidden'
+            name="hidden"
+        >
+            <option [value]="0">Visible</option>
+            <option [value]="1">Hidden</option>
+        </app-selectfield>
     </app-panel>
 </app-view>
