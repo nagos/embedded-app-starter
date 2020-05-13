@@ -51,6 +51,12 @@
                 [hidden]='hidden'
             >
             </app-timezone>
+            <app-fieldbody
+                title="Field body"
+                [hidden]='hidden'
+            >
+                <i class="fa fa-times-circle"></i>
+            </app-fieldbody>
             <app-setcancelbutton (apply)='sendForm()' (cancel)="resetForm()" [disabled]="settingsForm.pristine"></app-setcancelbutton>
         </form>
     </app-panel>

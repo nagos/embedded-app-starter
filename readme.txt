@@ -21,11 +21,4 @@ scp -r dist/* root@192.168.x.x:/www/pages/
 Иконки FontAwesome 5
 https://fontawesome.com/icons
 (нужно импортировать индивидуально в app.module.ts
-=======================================
-import { faTimesCircle, faClock, faCog, faChevronCircleLeft, faAlignLeft } from '@fortawesome/free-solid-svg-icons';
-library.add(faTimesCircle, faClock, faCog, faChevronCircleLeft, faAlignLeft);
-dom.watch();
-
-<i class="fas fa-chevron-circle-left brand-font" aria-hidden="true" title="Settings" routerLink="/"
-=======================================
 
