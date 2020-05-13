@@ -12,6 +12,7 @@ export class WsdataService {
 
     public sidebarRoutes = [
         {label: 'Status', link: '/'},
+        {label: 'Settings', link: '/settings'},
     ];
     public modelStr = 'Angular Template';
 

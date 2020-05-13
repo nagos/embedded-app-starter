@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { WebsocketService } from './websocket.service';
 import { WsdataService } from './wsdata.service';
 import { MainComponent } from './views/main.component';
+import { SettingsComponent } from './views/settings.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { MyAddonModule } from './components/components.module';
@@ -19,6 +20,7 @@ import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
     declarations: [
         AppComponent,
         MainComponent,
+        SettingsComponent,
     ],
     imports: [
         BrowserModule,
