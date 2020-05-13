@@ -1,14 +1,13 @@
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
 import { WsdataService } from '../wsdata.service';
 
 @Component({
     selector: 'app-settings',
     templateUrl: './settings.component.html',
 })
-export class SettingsComponent implements AfterViewInit {
+export class SettingsComponent {
 
-    public settingsData = this.wsData.settingsData;
+    public settingsData = this.wsData.copySettings();
 
     newdata(): void {
         this.settingsData = this.wsData.copySettings();
@@ -16,9 +15,5 @@ export class SettingsComponent implements AfterViewInit {
 
     constructor(public wsData: WsdataService) {
         this.wsData.subscribeNewData(() => this.newdata());
-    }
-
-    ngAfterViewInit() {
-        this.newdata();
     }
 }

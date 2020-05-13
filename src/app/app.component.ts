@@ -4,12 +4,9 @@ import { WsdataService } from './wsdata.service';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.less']
 })
 export class AppComponent {
     constructor(private wsData: WsdataService) {
     }
 
-    update(data): void {
-    }
 }

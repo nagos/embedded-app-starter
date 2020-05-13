@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { WsdataService } from '../wsdata.service';
 
@@ -6,11 +6,11 @@ import { WsdataService } from '../wsdata.service';
     selector: 'app-main',
     templateUrl: './main.component.html',
 })
-export class MainComponent implements AfterViewInit {
+export class MainComponent {
 
     @ViewChild('settingsForm', {static: false}) settingsForm: NgForm;
 
-    public settingsData = this.wsData.settingsData;
+    public settingsData = this.wsData.copySettings();
     public disabled = 0;
     public hidden = 0;
 
@@ -20,10 +20,6 @@ export class MainComponent implements AfterViewInit {
 
     constructor(public wsData: WsdataService) {
         this.wsData.subscribeNewData(() => this.newdata());
-    }
-
-    ngAfterViewInit() {
-        this.newdata();
     }
 
     public sendForm() {
