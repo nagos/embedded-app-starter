@@ -8,6 +8,7 @@ import { copyArray } from './tools';
 
 @Injectable()
 export class WsdataService {
+    private wsService = new WebsocketService();
     connectionStatus = this.wsService.connectionStatus;
     private newData = new Subject();
 
@@ -31,9 +32,9 @@ export class WsdataService {
         timeZone: 'Europe/Moscow',
     };
 
-    constructor(public wsService: WebsocketService, private http: HttpClient, private titleService: Title) {
+    constructor(private http: HttpClient, private titleService: Title) {
         this.show_version();
-        wsService.subscribe((msg) => this.message(msg));
+        this.wsService.subscribe((msg) => this.message(msg));
         this.titleService.setTitle(this.modelStr);
     }
 
