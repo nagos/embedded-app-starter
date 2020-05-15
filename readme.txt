@@ -17,6 +17,8 @@ npm run build
 
 scp -r dist/* root@192.168.x.x:/www/pages/
 
+Проверка кода на ощибки
+npm run lint
 
 Иконки FontAwesome 5
 https://fontawesome.com/icons
