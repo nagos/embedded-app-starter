@@ -10,7 +10,6 @@ import { SettingsComponent } from './views/settings.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MyAddonModule } from './components/components.module';
 
-
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 

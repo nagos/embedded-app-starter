@@ -7,9 +7,9 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
     templateUrl: './buttongroup.component.html',
     providers: [
         {
-          provide: NG_VALUE_ACCESSOR,
-          useExisting: forwardRef(() => ButtonGroupComponent),
-          multi: true
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => ButtonGroupComponent),
+            multi: true
         }
     ],
     styleUrls: ['./buttongroup.component.less']
@@ -55,5 +55,4 @@ export class ButtonGroupComponent implements ControlValueAccessor {
     setDisabledState(isDisabled: boolean) {
         this.isDisabled = isDisabled;
     }
-
 }

@@ -13,7 +13,6 @@ export class SidebarComponent {
 
     public isCollapsed = false;
 
-
     private routeToIndex(route) {
         for (const [i, v] of this.data.entries()) {
             if (v.link === route) {

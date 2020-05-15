@@ -8,5 +8,4 @@ import { WsdataService } from './wsdata.service';
 export class AppComponent {
     constructor(private wsData: WsdataService) {
     }
-
 }
