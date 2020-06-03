@@ -28,12 +28,7 @@ export class WebsocketService {
     public dataOut = new Subject<Message>();
 
     constructor() {
-        if (!environment.production) {
-            this.url = 'ws://' + environment.dev_ip + '/app';
-        } else {
-            const loc = window.location;
-            this.url = 'ws://' + loc.host + '/app';
-        }
+        this.url = environment.dev_ip;
         // таймер повторного подключения
         this.connect();
         timer(1000, 1000)

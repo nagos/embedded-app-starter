@@ -1,4 +1,5 @@
+const loc = window.location;
 export const environment = {
-    dev_ip: '127.0.0.1',
+    dev_ip: 'ws://' + loc.host + '/app',
     production: true
 };
