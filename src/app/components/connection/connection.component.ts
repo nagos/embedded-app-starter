@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { WsdataService } from './../../wsdata.service';
 
 @Component({
@@ -6,15 +6,12 @@ import { WsdataService } from './../../wsdata.service';
     templateUrl: './connection.component.html',
     styleUrls: ['./connection.component.less']
 })
-export class ConnectionComponent implements OnInit {
+export class ConnectionComponent {
     connectionStatus: any;
     connectionDialog = false;
 
     constructor(private wsdataService: WsdataService) {
         this.connectionStatus = wsdataService.connectionStatus;
-    }
-
-    ngOnInit() {
     }
 
 }

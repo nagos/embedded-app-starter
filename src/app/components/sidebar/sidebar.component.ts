@@ -13,7 +13,7 @@ export class SidebarComponent {
 
     public isCollapsed = false;
 
-    private routeToIndex(route) {
+    private routeToIndex(route): number {
         for (const [i, v] of this.data.entries()) {
             if (v.link === route) {
                 return i;
@@ -27,7 +27,7 @@ export class SidebarComponent {
         return 0;
     }
 
-    public getIndex() {
+    public getIndex(): number {
         return this.routeToIndex(this.route.snapshot.pathFromRoot.map(o => o.url[0]).join('/'));
     }
 

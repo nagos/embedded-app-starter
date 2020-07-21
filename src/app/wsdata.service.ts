@@ -58,11 +58,11 @@ export class WsdataService {
         }
     }
 
-    private get_version() {
+    private get_version(): any {
         return this.http.get(this.versionUrl);
     }
 
-    private show_version() {
+    private show_version(): void {
         this.get_version()
             .subscribe((data: Version) =>
                 this.version.frontend_version = data.frontend_version
@@ -86,7 +86,7 @@ export class WsdataService {
         return copyArray(this.settingsData);
     }
 
-    public readSettings(data: SettingsData) {
+    public readSettings(data: SettingsData): void {
         this.settingsData = copyArray(data);
     }
 

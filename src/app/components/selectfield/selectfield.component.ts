@@ -26,7 +26,7 @@ export class SelectfieldComponent implements ControlValueAccessor {
     constructor() {
     }
 
-    get value() {
+    get value(): number {
         return +this.val;
     }
 
@@ -34,23 +34,23 @@ export class SelectfieldComponent implements ControlValueAccessor {
         this.val = val;
     }
 
-    writeValue(value) {
+    writeValue(value): void {
         this.val = +value;
     }
 
-    changeValue(value) {
+    changeValue(value): void {
         this.onChange(+value);
     }
 
-    registerOnChange(fn) {
+    registerOnChange(fn): void {
         this.onChange = fn;
     }
 
-    registerOnTouched(fn) {
+    registerOnTouched(fn): void {
         this.onTouched = fn;
     }
 
-    setDisabledState(isDisabled: boolean) {
+    setDisabledState(isDisabled: boolean): void {
         this.isDisabled = isDisabled;
     }
 }

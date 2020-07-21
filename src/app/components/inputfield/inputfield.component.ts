@@ -29,7 +29,7 @@ export class InputfieldComponent implements ControlValueAccessor {
     constructor() {
     }
 
-    get value() {
+    get value(): any {
         if (this.type === 'number') {
             return +this.val;
         } else {
@@ -41,13 +41,13 @@ export class InputfieldComponent implements ControlValueAccessor {
         this.val = val;
     }
 
-    writeValue(value) {
+    writeValue(value): void {
         this.val = value;
     }
 
     // за изменением значения компонента следим через ngModelChange
     // (при возникновении ngModelChanged вызываем функцию changeValue, которая сделает значение числовым, если тип компонента number)
-    changeValue(value) {
+    changeValue(value): void {
         if (this.type === 'number') {
             this.onChange(+value);
         } else {
@@ -55,15 +55,15 @@ export class InputfieldComponent implements ControlValueAccessor {
         }
     }
 
-    registerOnChange(fn) {
+    registerOnChange(fn): void {
         this.onChange = fn;
     }
 
-    registerOnTouched(fn) {
+    registerOnTouched(fn): void {
         this.onTouched = fn;
     }
 
-    setDisabledState(isDisabled: boolean) {
+    setDisabledState(isDisabled: boolean): void {
         this.isDisabled = isDisabled;
     }
 }

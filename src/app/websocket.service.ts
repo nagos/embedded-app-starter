@@ -75,7 +75,7 @@ export class WebsocketService {
         return new Date().getTime() / 1000;
     }
 
-    public connect() {
+    public connect(): void {
         this.ws = new WebSocket(this.url);
         this.ws.onmessage = (ev) => {
             this.dataIn.next(JSON.parse(ev.data));
@@ -86,7 +86,7 @@ export class WebsocketService {
         this.lastDataTime = this.get_time();
     }
 
-    private new_connection() {
+    private new_connection(): void {
         this.newConnectionSubject.next();
         console.log('Successfully connected: ' + this.url);
     }

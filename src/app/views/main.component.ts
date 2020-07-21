@@ -22,13 +22,13 @@ export class MainComponent {
         this.wsData.subscribeNewData(() => this.newdata());
     }
 
-    public sendForm() {
+    public sendForm(): void {
         this.wsData.readSettings(this.settingsData);
         this.wsData.sendSettings();
         this.settingsForm.form.markAsPristine();
     }
 
-    public resetForm() {
+    public resetForm(): void {
         this.settingsForm.form.markAsPristine();
         this.newdata();
     }

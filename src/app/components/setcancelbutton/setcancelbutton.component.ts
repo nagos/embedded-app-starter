@@ -11,11 +11,11 @@ export class SetCancelButtonComponent {
     @Output() apply = new EventEmitter<{}>();
     @Output() cancel = new EventEmitter<{}>();
 
-    public dataApply() {
+    public dataApply(): void {
         this.apply.emit();
     }
 
-    public dataCancel() {
+    public dataCancel(): void {
         this.cancel.emit();
     }
 }

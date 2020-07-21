@@ -39,7 +39,7 @@ export class TimezoneComponent implements ControlValueAccessor {
         this.val = val;
     }
 
-    writeValue(value: string) {
+    writeValue(value: string): void {
         if (typeof(value) !== 'string') {
             return;
         }
@@ -52,23 +52,23 @@ export class TimezoneComponent implements ControlValueAccessor {
         }
     }
 
-    changeValue() {
+    changeValue(): void {
         this.onChange(this.val + '/' + this.val2);
     }
 
-    registerOnChange(fn) {
+    registerOnChange(fn): void {
         this.onChange = fn;
     }
 
-    registerOnTouched(fn) {
+    registerOnTouched(fn): void {
         this.onTouched = fn;
     }
 
-    setDisabledState(isDisabled: boolean) {
+    setDisabledState(isDisabled: boolean): void {
         this.isDisabled = isDisabled;
     }
 
-    chaneRegion() {
+    chaneRegion(): void {
         this.val2 = tzlist[this.val][0];
         this.changeValue();
     }
