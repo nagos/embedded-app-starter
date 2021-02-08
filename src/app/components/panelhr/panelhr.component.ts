@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class PanelHrComponent {
 
     @Input() title = '';
+    @Input() nocase = true;
 
     constructor() {
     }
