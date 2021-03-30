@@ -8,7 +8,7 @@
 
             <!-- Данные в переменной data -->
             <ul class="list-unstyled components">
-                <li *ngFor="let item of data; let i = index" [className]="(getIndex()==i)?'active' : ''">
+                <li *ngFor="let item of data; let i = index" routerLinkActive="active">
                     <a [routerLink]="item.link" data-toggle='collapse' aria-expanded="false" (click)='isCollapsed=!isCollapsed'>
                         <span>{{item.label}}</span>
                     </a>

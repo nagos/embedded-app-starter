@@ -4,9 +4,9 @@ import { MainComponent } from './views/main.component';
 import { SettingsComponent } from './views/settings.component';
 
 const routes: Routes = [
-    { path: '', component: MainComponent },
+    { path: 'status', component: MainComponent },
     { path: 'settings', component: SettingsComponent },
-    { path: '**', component: MainComponent },
+    { path: '**', redirectTo: 'status', pathMatch: 'full'},
 ];
 
 @NgModule({

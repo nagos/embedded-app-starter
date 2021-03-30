@@ -13,7 +13,7 @@ export class WsdataService {
     private newData = new Subject();
 
     public sidebarRoutes = [
-        {label: 'Status', link: '/'},
+        {label: 'Status', link: '/status'},
         {label: 'Settings', link: '/settings'},
     ];
     public modelStr = 'Angular Template';
