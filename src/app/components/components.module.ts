@@ -13,6 +13,7 @@ import { TimezoneComponent } from './timezone/timezone.component';
 import { PanelHrComponent } from './panelhr/panelhr.component';
 import { SetCancelButtonComponent } from './setcancelbutton/setcancelbutton.component';
 import { FieldBodyComponent } from './fieldbody/fieldbody.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { FieldBodyComponent } from './fieldbody/fieldbody.component';
         PanelHrComponent,
         SetCancelButtonComponent,
         FieldBodyComponent,
+        CheckboxComponent,
     ],
     imports: [
         FormsModule,
@@ -45,6 +47,7 @@ import { FieldBodyComponent } from './fieldbody/fieldbody.component';
         PanelHrComponent,
         SetCancelButtonComponent,
         FieldBodyComponent,
+        CheckboxComponent,
         AppRoutingModule,
     ]
   })
