@@ -7,5 +7,6 @@ export interface SettingsData {
     valueint: number;
     valueselect: number;
     valuebutton: number;
+    valuecheckbox: number;
     timeZone: string;
 }

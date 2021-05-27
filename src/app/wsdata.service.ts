@@ -29,6 +29,7 @@ export class WsdataService {
         valueint: 0,
         valueselect: 0,
         valuebutton: 0,
+        valuecheckbox: 0,
         timeZone: 'Europe/Moscow',
     };
 
