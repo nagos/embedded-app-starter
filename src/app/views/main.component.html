@@ -22,6 +22,15 @@
             >
             </app-inputfield>
 
+            <app-inputfield
+                title='String display'
+                [(ngModel)]='settingsData.value'
+                name='value2'
+                readonly='readonly'
+                [hidden]='hidden'
+                >
+            </app-inputfield>
+
             <app-selectfield title='Select'
                 [(ngModel)]="settingsData.valueselect"
                 name="valueselect"

@@ -22,6 +22,7 @@ export class InputfieldComponent implements ControlValueAccessor {
     @Input() type = 'text';
     @Input() min = '';
     @Input() max = '';
+    @Input() readonly = '';
 
     onChange: any = () => {};
     onTouched: any = () => {};
