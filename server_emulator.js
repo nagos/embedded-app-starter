@@ -1,4 +1,5 @@
 // Node.js WebSocket server script
+const rand_value = Math.floor(Math.random()*1000);
 const http = require('http');
 const WebSocketServer = require('websocket').server;
 const server = http.createServer();
@@ -29,6 +30,7 @@ wsServer.on('request', function (request) {
             valueselect: 1,
             valuebutton: 0,
             timeZone: 'Europe/Moscow',
+            rand_value: rand_value,
         }
     }));
 });

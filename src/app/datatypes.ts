@@ -9,4 +9,5 @@ export interface SettingsData {
     valuebutton: number;
     valuecheckbox: number;
     timeZone: string;
+    rand_value: number;
 }

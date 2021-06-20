@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { Version, SettingsData } from './datatypes';
 import { copyArray } from './tools';
+import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Injectable()
 export class WsdataService {
@@ -31,7 +33,10 @@ export class WsdataService {
         valuebutton: 0,
         valuecheckbox: 0,
         timeZone: 'Europe/Moscow',
+        rand_value: 0,
     };
+
+    private deviceRand: number = 0;
 
     constructor(private http: HttpClient, private titleService: Title) {
         this.show_version();
@@ -52,6 +57,12 @@ export class WsdataService {
             case 'settings': {
                 Object.assign(this.settingsData, msg.data);
                 this.newData.next();
+
+                if (this.deviceRand === 0){
+                    this.deviceRand = this.settingsData.rand_value;
+                } else if (this.deviceRand !== this.settingsData.rand_value) {
+                    this.pageReload();
+                }
                 break;
             }
             default:
@@ -89,6 +100,10 @@ export class WsdataService {
 
     public readSettings(data: SettingsData): void {
         this.settingsData = copyArray(data);
+    }
+
+    public pageReload(): void {
+        of(null).pipe(delay(2000)).subscribe(() => window.location.reload());
     }
 
 }
