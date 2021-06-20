@@ -23,7 +23,6 @@ export class WebsocketService {
         value: false,
         first: false,
     };
-    private newConnectionSubject = new Subject();
     private dataIn = new Subject<Message>();
     public dataOut = new Subject<Message>();
 
@@ -87,7 +86,6 @@ export class WebsocketService {
     }
 
     private new_connection(): void {
-        this.newConnectionSubject.next();
         console.log('Successfully connected: ' + this.url);
     }
 
@@ -98,9 +96,5 @@ export class WebsocketService {
      */
     public subscribe(f: (object) => void): void {
         this.dataIn.subscribe(f);
-    }
-
-    public subscribe_new_connection(f: () => void): void {
-        this.newConnectionSubject.subscribe(value => f());
     }
 }
