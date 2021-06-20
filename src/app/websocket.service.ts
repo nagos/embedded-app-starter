@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { timer } from 'rxjs';
+import { interval } from 'rxjs';
 import { environment } from '../environments/environment';
 
 export interface Message {
@@ -30,11 +30,10 @@ export class WebsocketService {
         this.url = environment.dev_ip;
         // таймер повторного подключения
         this.connect();
-        timer(1000, 1000)
+        interval(1000)
             .subscribe(() => {
                 switch (this.ws.readyState) {
                     case WebSocket.CLOSED:
-                        this.connectionStatus.value = false;
                         if (this.lastConnectAttempt + this.reconnectTimeout < this.get_time()) {
                             this.connect();
                         }
@@ -44,17 +43,14 @@ export class WebsocketService {
                             this.ws.close();
                             this.connect();
                             this.connectionStatus.value = false;
-                        } else {
-                            this.connectionStatus.value = true;
                         }
-                        this.connectionStatus.first = true;
                         break;
                     default:
                         break;
                 }
             });
         // таймер keepalive
-        timer(10000, 10000)
+        interval(10000)
         .subscribe(() => {
             if (this.ws.readyState === WebSocket.OPEN) {
                 this.send_data('keepalive', {});
@@ -80,13 +76,17 @@ export class WebsocketService {
             this.dataIn.next(JSON.parse(ev.data));
             this.lastDataTime = this.get_time();
         };
-        this.ws.onopen = () => this.new_connection();
+        this.ws.onopen = () => {
+            console.log('Successfully connected: ' + this.url);
+            this.connectionStatus.first = true;
+            this.connectionStatus.value = true;
+        };
+        this.ws.onclose = () => {
+            console.log('Disconnected');
+            this.connectionStatus.value = false;
+        };
         this.lastConnectAttempt = this.get_time();
         this.lastDataTime = this.get_time();
-    }
-
-    private new_connection(): void {
-        console.log('Successfully connected: ' + this.url);
     }
 
     /**
