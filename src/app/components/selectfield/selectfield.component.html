@@ -1,5 +1,5 @@
 <app-fieldbody [title]='title'>
-    <select class="form-control" [(ngModel)]="val" (ngModelChange)="changeValue(val)" [disabled]="isDisabled">
+    <select class="form-select" [(ngModel)]="val" (ngModelChange)="changeValue(val)" [disabled]="isDisabled">
         <ng-content></ng-content>
     </select>
 </app-fieldbody>
