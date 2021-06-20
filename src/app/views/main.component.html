@@ -32,17 +32,16 @@
                 <option [value]="1">Enabled</option>
             </app-selectfield>
 
-            <app-fieldbody title='Checkbox'>
+            <app-fieldbody title='Checkbox' [hidden]='hidden'>
                 <app-checkbox
                     title="Checkbox"
                     name="checkbox1"
                     [(ngModel)]="settingsData.valuecheckbox"
                     [disabled]='disabled'
-                    [hidden]='hidden'
                 ></app-checkbox>
             </app-fieldbody>
 
-            <app-panelhr></app-panelhr>
+            <app-panelhr [hidden]='hidden'></app-panelhr>
 
             <app-buttongroup
                 title='Button group'
