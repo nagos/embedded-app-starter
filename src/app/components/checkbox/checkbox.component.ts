@@ -42,10 +42,11 @@ export class CheckboxComponent implements ControlValueAccessor {
     // за изменением значения компонента следим через ngModelChange
     // (при возникновении ngModelChanged вызываем функцию changeValue, которая сделает значение числовым, если тип компонента number)
     changeValue(value): void {
-        if(value)
+        if (value) {
             this.val = 0;
-        else
+        } else {
             this.val = 1;
+        }
         this.onChange(this.val);
     }
 

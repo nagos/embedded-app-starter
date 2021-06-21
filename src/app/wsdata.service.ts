@@ -36,7 +36,7 @@ export class WsdataService {
         rand_value: 0,
     };
 
-    private deviceRand: number = 0;
+    private deviceRand = 0;
 
     constructor(private http: HttpClient, private titleService: Title) {
         this.show_version();
