@@ -1,0 +1,40 @@
+<div class="form-group row">
+    <div [class]="labelClass">
+        <label class="col-form-label">{{title}}</label>
+    </div>
+
+    <div [class]="inputClass">
+        <button type="button" class="btn button-default btn-fixed-width" data-bs-toggle="modal" [attr.data-bs-target]="'#'+name">
+            {{button}}
+        </button>
+
+        <div class="modal fade" [id]="name" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <ng-content></ng-content>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn button-default btn-fixed-width"
+                            data-bs-dismiss="modal"
+                            (click)="clickOk()"
+                        >
+                            OK
+                        </button>
+                        <button
+                            type="button"
+                            class="btn button-default btn-fixed-width"
+                            data-bs-dismiss="modal"
+                            [hidden]='hideCancel'
+                            (click)="clickCancel()"
+                        >
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

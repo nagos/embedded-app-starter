@@ -75,6 +75,23 @@
             >
                 <i class="fa fa-times-circle"></i>
             </app-fieldbody>
+            <app-modal
+                title='Modal'
+                name='modal'
+                button='Open'
+                (ok)='modalOk()'
+                (cancel)='modalCancel()'
+            >
+                Factory reset?
+            </app-modal>
+            <app-modal
+                title='OK'
+                name='modal2'
+                button='Open2'
+                hideCancel='true'
+            >
+                Test2
+            </app-modal>
             <app-setcancelbutton (apply)='sendForm()' (cancel)="resetForm()" [disabled]="settingsForm.pristine"></app-setcancelbutton>
         </form>
     </app-panel>

@@ -33,4 +33,12 @@ export class MainComponent {
         this.newdata();
     }
 
+    public modalOk(): void {
+        console.log('Modal OK');
+    }
+
+    public modalCancel(): void {
+        console.log('Modal Cancel');
+    }
+
 }

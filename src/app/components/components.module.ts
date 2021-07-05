@@ -14,6 +14,7 @@ import { PanelHrComponent } from './panelhr/panelhr.component';
 import { SetCancelButtonComponent } from './setcancelbutton/setcancelbutton.component';
 import { FieldBodyComponent } from './fieldbody/fieldbody.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
     declarations: [
@@ -29,6 +30,7 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
         SetCancelButtonComponent,
         FieldBodyComponent,
         CheckboxComponent,
+        ModalComponent,
     ],
     imports: [
         FormsModule,
@@ -48,6 +50,7 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
         SetCancelButtonComponent,
         FieldBodyComponent,
         CheckboxComponent,
+        ModalComponent,
         AppRoutingModule,
     ]
   })
