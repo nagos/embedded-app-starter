@@ -22,7 +22,14 @@ export class InputfieldComponent implements ControlValueAccessor {
     @Input() type = 'text';
     @Input() min = '';
     @Input() max = '';
-    @Input() readonly = '';
+    @Input() set readonly(value: boolean) {
+        this.isReadonly = typeof value === 'boolean' ? value : true;
+    }
+    get readonly(): boolean {
+        return this.isReadonly;
+    }
+
+    public isReadonly = false;
 
     onChange: any = () => {};
     onTouched: any = () => {};
