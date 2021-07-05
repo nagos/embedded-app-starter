@@ -1,8 +1,8 @@
 <app-fieldbody [title]='title'>
-    <select class="form-control" [(ngModel)]="val" (ngModelChange)="chaneRegion()" [disabled]='isDisabled'>
+    <select class="form-select" [(ngModel)]="val" (ngModelChange)="chaneRegion()" [disabled]='isDisabled'>
             <option *ngFor="let item of tzlist| keyvalue; let i = index" value="{{item.key}}">{{item.key}}</option>
     </select>
-    <select class="form-control" [(ngModel)]="val2" (ngModelChange)="changeValue()" [disabled]='isDisabled'>
+    <select class="form-select" [(ngModel)]="val2" (ngModelChange)="changeValue()" [disabled]='isDisabled'>
             <option *ngFor="let item of tzlist[val]; let i = index" value="{{item}}">{{item}}</option>
     </select>
 </app-fieldbody>
