@@ -92,7 +92,6 @@ export class WebsocketService {
     /**
      * Подписаться на получение сообщений
      * @param f callback
-     * @param t this
      */
     public subscribe(f: (object) => void): void {
         this.dataIn.subscribe(f);
