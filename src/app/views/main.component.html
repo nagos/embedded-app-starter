@@ -93,6 +93,9 @@
                 >
                     Test2
                 </app-modal>
+                <app-fieldbody title='Button'>
+                    <button class="btn button-default btn-fixed-width" type="button" (click)='setButton()' [disabled]="disabled">Set</button>
+                </app-fieldbody>
                 <app-setcancelbutton (apply)='sendForm()' (cancel)="resetForm()" [disabled]="settingsForm.pristine"></app-setcancelbutton>
         </app-panel>
         <app-panel title='Attributes'>

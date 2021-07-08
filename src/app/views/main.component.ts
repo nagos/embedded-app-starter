@@ -41,4 +41,8 @@ export class MainComponent {
         console.log('Modal Cancel');
     }
 
+    public setButton(): void {
+        console.log("Button");
+    }
+
 }
