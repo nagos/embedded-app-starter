@@ -111,4 +111,35 @@
             <option [value]="1">Hidden</option>
         </app-selectfield>
     </app-panel>
+
+    <app-panel title='Stack 1' stack=3>
+        <app-inputfield
+            title='String display'
+            [(ngModel)]='settingsData.value'
+            name='value2'
+            readonly
+            [hidden]='hidden'
+        >
+        </app-inputfield>
+    </app-panel>
+    <app-panel title='Stack 2' stack=3>
+        <app-inputfield
+            title='String display'
+            [(ngModel)]='settingsData.value'
+            name='value2'
+            readonly
+            [hidden]='hidden'
+        >
+        </app-inputfield>
+    </app-panel>
+    <app-panel title='Stack 3' stack=3>
+        <app-inputfield
+            title='String display'
+            [(ngModel)]='settingsData.value'
+            name='value2'
+            readonly
+            [hidden]='hidden'
+        >
+        </app-inputfield>
+    </app-panel>
 </app-view>
