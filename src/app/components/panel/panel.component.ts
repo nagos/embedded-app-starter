@@ -8,8 +8,17 @@ import { Component, Input, HostBinding } from '@angular/core';
 export class PanelComponent {
 
     @Input() title = '';
-    @HostBinding('class') classList = 'col-xl-5 col-lg-8 col-md-10 col-sm-12 col-xs-12 mb-2';
+    @HostBinding('class') classList = 'col-xl-6 col-lg-12 mb-2';
     @Input() nocase = true;
+    @Input() set stack(value: number) {
+        if (value == 1) {
+            this.classList = 'col-xl-12 col-lg-12 mb-2';
+        } else if (value == 2) {
+            this.classList = 'col-xl-6 col-lg-12 mb-2';
+        } else if (value == 3) {
+            this.classList = 'col-xl-4 col-lg-12 mb-2';
+        }
+    }
 
     constructor() {
     }
