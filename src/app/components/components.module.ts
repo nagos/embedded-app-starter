@@ -12,6 +12,7 @@ import { ButtonGroupComponent } from './buttongroup/buttongroup.component';
 import { TimezoneComponent } from './timezone/timezone.component';
 import { PanelHrComponent } from './panelhr/panelhr.component';
 import { SetCancelButtonComponent } from './setcancelbutton/setcancelbutton.component';
+import { SetCancelWideComponent } from './setcancelwide/setcancelwide.component';
 import { FieldBodyComponent } from './fieldbody/fieldbody.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ModalComponent } from './modal/modal.component';
@@ -28,6 +29,7 @@ import { ModalComponent } from './modal/modal.component';
         TimezoneComponent,
         PanelHrComponent,
         SetCancelButtonComponent,
+        SetCancelWideComponent,
         FieldBodyComponent,
         CheckboxComponent,
         ModalComponent,
@@ -48,6 +50,7 @@ import { ModalComponent } from './modal/modal.component';
         TimezoneComponent,
         PanelHrComponent,
         SetCancelButtonComponent,
+        SetCancelWideComponent,
         FieldBodyComponent,
         CheckboxComponent,
         ModalComponent,
