@@ -8,7 +8,11 @@ import { Component, Input } from '@angular/core';
 export class PanelHrComponent {
 
     @Input() title = '';
-    @Input() nocase = true;
+    @Input() set nocase(value: boolean) {
+        // защита от пустой строки
+        this.isNocase = typeof value === 'boolean' ? value : true;
+    }
+    public isNocase = false;
 
     constructor() {
     }

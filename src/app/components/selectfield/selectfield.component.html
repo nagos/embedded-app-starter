@@ -1,4 +1,4 @@
-<app-fieldbody [title]='title'>
+<app-fieldbody [title]='title' [nocase]='isNocase'>
     <select class="form-select" [(ngModel)]="val" (ngModelChange)="changeValue(val)" [disabled]="isDisabled">
         <ng-content></ng-content>
     </select>

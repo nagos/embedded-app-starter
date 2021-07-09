@@ -10,7 +10,10 @@ export class PanelComponent {
     @Input() title = '';
     // назначить классы родительскому компоненту
     @HostBinding('class') classList = 'col-xl-6 col-lg-12 mb-2';
-    @Input() nocase = true;
+    @Input() set nocase(value: boolean) {
+        // защита от пустой строки
+        this.isNocase = typeof value === 'boolean' ? value : true;
+    }
     // количество панелей в ряд
     @Input() set stack(value: number) {
         if (value == 1) {
@@ -21,6 +24,7 @@ export class PanelComponent {
             this.classList = 'col-xl-4 col-lg-12 mb-2';
         }
     }
+    public isNocase = false;
 
     constructor() {
     }

@@ -35,6 +35,12 @@ export class InputfieldComponent implements ControlValueAccessor {
     onChange: any = () => {};
     onTouched: any = () => {};
 
+    @Input() set nocase(value: boolean) {
+        // защита от пустой строки
+        this.isNocase = typeof value === 'boolean' ? value : true;
+    }
+    public isNocase = false;
+
     constructor() {
     }
 

@@ -1,6 +1,6 @@
 <div class="form-group row">
     <div [class]="labelClass">
-        <label class="col-form-label">{{title}}</label>
+        <label class="col-form-label">{{isNocase===true ? (title) : (title | titlecase)}}</label>
     </div>
 
     <div [class]="inputClass">
