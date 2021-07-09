@@ -68,7 +68,7 @@ export class TimezoneComponent implements ControlValueAccessor {
         this.isDisabled = isDisabled;
     }
 
-    chaneRegion(): void {
+    changeRegion(): void {
         this.val2 = tzlist[this.val][0];
         this.changeValue();
     }

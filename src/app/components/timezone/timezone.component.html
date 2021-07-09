@@ -1,5 +1,5 @@
 <app-fieldbody [title]='title'>
-    <select class="form-select" [(ngModel)]="val" (ngModelChange)="chaneRegion()" [disabled]='isDisabled'>
+    <select class="form-select" [(ngModel)]="val" (ngModelChange)="changeRegion()" [disabled]='isDisabled'>
             <option *ngFor="let item of tzlist| keyvalue; let i = index" value="{{item.key}}">{{item.key}}</option>
     </select>
     <select class="form-select" [(ngModel)]="val2" (ngModelChange)="changeValue()" [disabled]='isDisabled'>
