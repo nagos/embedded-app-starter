@@ -1,4 +1,4 @@
-Заготовка web интерфейса на Angular 9
+Заготовка web интерфейса на Angular 11
 
 
 Первоначальная установка проекта
@@ -31,3 +31,4 @@ npm install --no-save websocket
 node server_emulator.js
 В debug.ts прописать
 export const DEV_IP = '127.0.0.1:9898';
+
