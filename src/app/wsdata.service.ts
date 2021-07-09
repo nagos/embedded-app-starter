@@ -14,6 +14,7 @@ export class WsdataService {
     connectionStatus = this.wsService.connectionStatus;
     private newData = new Subject();
 
+    // список страниц sidebar
     public sidebarRoutes = [
         {label: 'Status', link: '/status'},
         {label: 'Settings', link: '/settings'},

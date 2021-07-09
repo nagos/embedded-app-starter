@@ -11,6 +11,7 @@ export class ModalComponent {
     @Input() name = '';
     @Input() button = '';
     @Input() hideCancel = false;
+    // выход событий из компонента
     @Output() ok = new EventEmitter();
     @Output() cancel = new EventEmitter();
     public labelClass = 'col-xl-5 col-lg-4 col-md-12';

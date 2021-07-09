@@ -3,6 +3,7 @@
         <!-- Через [className] убираем sidebar -->
         <nav id="sidebar" [className]="isCollapsed?'active' : ''">
             <div class="sidebar-header pb-0">
+                <!-- имя устройства -->
                 <h5>{{modelStr}}</h5>
             </div>
 
@@ -16,8 +17,8 @@
             </ul>
         </nav>
 
-        <!-- Page Content -->
         <div id="content">
+            <!-- Верхний sidebar для мобильной версии -->
             <nav class="navbar navbar-expand-lg d-md-none">
                 <div class="container-fluid">
 

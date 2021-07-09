@@ -23,6 +23,7 @@ export class InputfieldComponent implements ControlValueAccessor {
     @Input() min = '';
     @Input() max = '';
     @Input() set readonly(value: boolean) {
+        // защита от пустой строки
         this.isReadonly = typeof value === 'boolean' ? value : true;
     }
     get readonly(): boolean {
@@ -37,6 +38,7 @@ export class InputfieldComponent implements ControlValueAccessor {
     constructor() {
     }
 
+    // возврат значения нужного типа
     get value(): any {
         if (this.type === 'number') {
             return +this.val;

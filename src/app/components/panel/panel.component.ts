@@ -8,8 +8,10 @@ import { Component, Input, HostBinding } from '@angular/core';
 export class PanelComponent {
 
     @Input() title = '';
+    // назначить классы родительскому компоненту
     @HostBinding('class') classList = 'col-xl-6 col-lg-12 mb-2';
     @Input() nocase = true;
+    // количество панелей в ряд
     @Input() set stack(value: number) {
         if (value == 1) {
             this.classList = 'col-xl-12 col-lg-12 mb-2';

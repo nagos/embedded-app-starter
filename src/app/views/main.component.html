@@ -38,6 +38,7 @@
                     [disabled]='disabled'
                     [hidden]='hidden'
                 >
+                    <!-- компонент смотрит не на порядок options, а на значение [value] -->
                     <option [value]="0">Disabled</option>
                     <option [value]="1">Enabled</option>
                 </app-selectfield>
@@ -51,7 +52,8 @@
                     ></app-checkbox>
                 </app-fieldbody>
 
-                <app-panelhr [hidden]='hidden'></app-panelhr>
+                <!-- hr может иметь свой title -->
+                <app-panelhr [hidden]='hidden' title="panel hr"></app-panelhr>
 
                 <app-buttongroup
                     title='Button group'
@@ -76,6 +78,7 @@
                 >
                     <i class="fa fa-times-circle"></i>
                 </app-fieldbody>
+                <!-- если не требуется реакция на кнопку Cancel, то (cancel) можно не вызывать -->
                 <app-modal
                     title='Modal'
                     name='modal'
@@ -83,8 +86,10 @@
                     (ok)='modalOk()'
                     (cancel)='modalCancel()'
                 >
+                <!-- содержимое модального окна (м.б. любым), в т.ч. и вложенный компонент  -->
                     Factory reset?
                 </app-modal>
+                <!-- hideCancel скрывает кнопку Cancel -->
                 <app-modal
                     title='OK'
                     name='modal2'

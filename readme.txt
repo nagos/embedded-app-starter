@@ -30,5 +30,4 @@ https://fontawesome.com/icons
 npm install --no-save websocket
 node server_emulator.js
 В debug.ts прописать
-export const DEV_IP = '127.0.0.1:9898';
-
+export const DEV_IP = 'localhost:9898';
