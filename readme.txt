@@ -27,7 +27,9 @@ https://fontawesome.com/icons
 
 Эмулятор сервера
 
-npm install --no-save websocket
 node server_emulator.js
 В debug.ts прописать
 export const DEV_IP = 'localhost:9898';
+
+
+Команды так же доступны через меню VS Code Терминал-Запуск задачи.
