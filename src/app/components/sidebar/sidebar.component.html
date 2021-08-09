@@ -11,7 +11,7 @@
             <ul class="list-unstyled components">
                 <li *ngFor="let item of data; let i = index" routerLinkActive="active">
                     <a [routerLink]="item.link" data-toggle='collapse' aria-expanded="false" (click)='isCollapsed=!isCollapsed'>
-                        <span>{{item.label}}</span>
+                        <i [ngClass]=item.icon class="fas fa-fw"></i> <span>{{item.label}}</span>
                     </a>
                 </li>
             </ul>

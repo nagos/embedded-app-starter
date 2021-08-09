@@ -16,8 +16,8 @@ export class WsdataService {
 
     // список страниц sidebar
     public sidebarRoutes = [
-        {label: 'Status', link: '/status'},
-        {label: 'Settings', link: '/settings'},
+        {icon: 'fa-angle-double-down', label: 'Status', link: '/status'},
+        {icon: 'fa-cogs', label: 'Settings', link: '/settings'},
     ];
     public modelStr = 'Angular Template';
 

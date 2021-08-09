@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyAddonModule } from './components/components.module';
 
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTimesCircle, faCogs, faAngleDoubleDown} from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
@@ -33,6 +33,6 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppModule { }
 
-library.add(faTimesCircle);
+library.add(faTimesCircle, faCogs, faAngleDoubleDown);
 library.add(faBars);
 dom.watch();
