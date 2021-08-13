@@ -4,7 +4,9 @@
         <nav id="sidebar" [className]="isCollapsed?'active' : ''">
             <div class="sidebar-header pb-0">
                 <!-- имя устройства -->
-                <h5>{{modelStr}}</h5>
+                <a routerLink="/" data-toggle="collapse" aria-expanded="false">
+                    <h5>{{modelStr}}</h5>
+                </a>
             </div>
 
             <!-- Данные в переменной data -->
