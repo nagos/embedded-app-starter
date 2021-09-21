@@ -16,6 +16,7 @@ import { SetCancelWideComponent } from './setcancelwide/setcancelwide.component'
 import { FieldBodyComponent } from './fieldbody/fieldbody.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ModalComponent } from './modal/modal.component';
+import { LedComponent } from './led/led.component';
 
 @NgModule({
     declarations: [
@@ -33,6 +34,7 @@ import { ModalComponent } from './modal/modal.component';
         FieldBodyComponent,
         CheckboxComponent,
         ModalComponent,
+        LedComponent,
     ],
     imports: [
         FormsModule,
@@ -54,6 +56,7 @@ import { ModalComponent } from './modal/modal.component';
         FieldBodyComponent,
         CheckboxComponent,
         ModalComponent,
+        LedComponent,
         AppRoutingModule,
     ]
   })
