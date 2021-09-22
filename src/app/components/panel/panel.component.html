@@ -2,6 +2,7 @@
     <div class='card-body'>
         <div class="row" *ngIf="title">
             <label class="col-form-label col">{{isNocase===true ? (title) : (title | titlecase)}}</label>
+            <label class="col-form-label col text-end" *ngIf="titleright!==''">{{isNocase===true ? (titleright) : (titleright | titlecase)}}</label>
         </div>
         <hr *ngIf="title">
         <ng-content></ng-content>

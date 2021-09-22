@@ -8,6 +8,7 @@ import { Component, Input, HostBinding } from '@angular/core';
 export class PanelComponent {
 
     @Input() title = '';
+    @Input() titleright = '';
     // назначить классы родительскому компоненту
     @HostBinding('class') classList = 'col-xl-6 col-lg-12 mb-2 card-mt';
     @Input() set nocase(value: boolean) {
@@ -23,7 +24,6 @@ export class PanelComponent {
         } else if (value == 3) {
             this.classList = 'col-xl-4 col-lg-12 mb-2 card-mt';
         }
-        
     }
     public isNocase = false;
 
