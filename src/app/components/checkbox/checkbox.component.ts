@@ -17,9 +17,17 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 export class CheckboxComponent implements ControlValueAccessor {
     public val: number;
     public isDisabled: boolean;
+    public isInline = false;
 
     @Input() title = '';
     @Input() name = '';
+    @Input() set inline(value: boolean) {
+        // защита от пустой строки
+        this.isInline = typeof value === 'boolean' ? value : true;
+    }
+    get readonly(): boolean {
+        return this.isInline;
+    }
 
     onChange: any = () => {};
     onTouched: any = () => {};

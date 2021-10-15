@@ -1,4 +1,4 @@
-<div class="form-check">
+<div [ngClass]='{"form-check-inline px-0 mx-1": isInline, "form-check": !isInline}' class="mt-1">
     <input class="form-check-input" type="checkbox" value="" [id]="name" [checked]="val" (change)="changeValue(val)" [disabled]="isDisabled">
     <label class="form-check-label" [for]="name">
       {{title}}
