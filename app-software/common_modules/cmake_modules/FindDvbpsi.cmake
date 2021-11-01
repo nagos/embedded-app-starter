@@ -1,0 +1,4 @@
+include(FindPackageHandleStandardArgs)
+find_path(DVB_PSI_INCLUDE_DIR dvbpsi/dvbpsi.h)
+find_library(DVB_PSI_LIBRARY dvbpsi)
+find_package_handle_standard_args(dvbpsi DEFAULT_MSG DVB_PSI_LIBRARY DVB_PSI_INCLUDE_DIR)

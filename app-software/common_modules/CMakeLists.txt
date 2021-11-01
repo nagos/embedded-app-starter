@@ -1,0 +1,10 @@
+add_subdirectory("data_storage")
+add_subdirectory("uptime-utils")
+add_subdirectory("web_socket_server")
+add_subdirectory("watchdog")
+add_subdirectory("spi-altera")
+add_subdirectory("linux-input")
+
+add_library(common_modules INTERFACE)
+target_link_libraries(common_modules INTERFACE Qt5::Core websocketserver watchdog data_storage uptime_utils spi_altera linux_input)
+target_include_directories(common_modules INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})

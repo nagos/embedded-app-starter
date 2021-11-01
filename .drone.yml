@@ -1,0 +1,28 @@
+kind: pipeline
+type: docker
+name: default
+steps:
+- name: frontend
+  image: node:16
+  environment:
+    NG_CLI_ANALYTICS: ci
+  commands:
+  - cd psdc-4230-frontend
+  - npm ci
+  - npm run lint
+  - npm run build
+- name: compile
+  image: dockerqt
+  pull: never
+  commands:
+  - cd psdc-4230-software
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
+- name: test
+  image: dockerqt
+  pull: never
+  commands:
+  - cd psdc-4230-software/build
+  - make test
