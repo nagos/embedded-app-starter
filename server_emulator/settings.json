@@ -1,0 +1,8 @@
+{
+    "value": "New Value",
+    "valueint": 1,
+    "valueselect": 1,
+    "valuebutton": 0,
+    "timeZone": "Europe/Moscow",
+    "rand_value": 123
+}
