@@ -1,5 +1,6 @@
 #include <sys/sysinfo.h>
 #include <QDateTime>
+#include <sys/time.h>
 #include "uptime_utils.h"
 
 QString  Uptime_utils::get_sys_uptime()
@@ -34,4 +35,18 @@ int32_t Uptime_utils::get_time_t()
 {
     QDateTime current_datetime = QDateTime::currentDateTime();
     return current_datetime.toTime_t();
+}
+
+void Uptime_utils::reboot()
+{
+    int ret = system("reboot");
+    Q_UNUSED(ret);
+}
+
+void Uptime_utils::system_set_time(time_t time)
+{
+    const struct timeval tv = {time, 0};
+    settimeofday(&tv, 0);
+    int ret = system("/etc/init.d/hwclock.sh restart");
+    Q_UNUSED(ret);
 }

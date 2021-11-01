@@ -9,6 +9,8 @@ class Uptime_utils : public QObject
 public:
     static QString get_sys_uptime();
     static int32_t get_time_t();
+    static void reboot();
+    static void system_set_time(time_t time);
 
 signals:
 
