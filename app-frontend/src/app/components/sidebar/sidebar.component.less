@@ -53,6 +53,7 @@ a:focus {
     background: @sidebar-color;
     color: @sidebar-font;
     transition: all 0.3s;
+    letter-spacing: 0.05em;
 }
 
 #sidebar.active {
@@ -125,7 +126,8 @@ a:focus {
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: @sidebar-font-active;
-    background: @sidebar-active;
+  // убираем полосу подсветки
+  //  background: @sidebar-active;
 }
 
 a[data-toggle="collapse"] {
