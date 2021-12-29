@@ -15,5 +15,6 @@ void LinuxInput::slot_get_kbd()
     input_event dat;
     int num = read(event_switches_file_handle, &dat, sizeof(input_event));
     Q_UNUSED(num);
-    key_event(dat.type, dat.code, dat.value);
+    if(dat.type==EV_KEY)
+        key_event(dat);
 }

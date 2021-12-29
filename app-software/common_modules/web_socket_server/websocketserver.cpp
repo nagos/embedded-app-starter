@@ -25,6 +25,7 @@ WebSocketServer::WebSocketServer(quint16 port, bool debug, QObject *parent) :
                         this, &WebSocketServer::onNewConnection);
                 connect(m_pWebSocketServer, &QWebSocketServer::closed, this, &WebSocketServer::closed);
         }
+        std::srand(std::time(nullptr));
         rand_value = std::rand();
         #ifdef WITH_TUFAO
         init_http_server();
@@ -65,10 +66,8 @@ void WebSocketServer::senddata(QWebSocket *pClient, QByteArray data)
 **/
 void WebSocketServer::sendall(QByteArray data)
 {
-    QList<QWebSocket *>::iterator i;
-    for (i = m_clients.begin(); i != m_clients.end(); ++i){
-            senddata(*i, data);
-    }
+        for(QWebSocket * i: m_clients)
+                senddata(i, data);
 }
 
 /**

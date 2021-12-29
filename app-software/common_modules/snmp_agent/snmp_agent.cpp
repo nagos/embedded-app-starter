@@ -14,7 +14,7 @@
 
 #define DO_RECONNECT_TIME 1000
 
-enum {CMD_GET, CMD_SET, CMD_GET_NEXT};
+enum {CMD_GET, CMD_SET, CMD_GET_NEXT, CMD_NONE};
 
 static QLoggingCategory category("SNMP_Agent");
 
@@ -22,7 +22,7 @@ const char * Snmp_Agent::SERVER_NAME = "/tmp/sock.unix";
 
 Snmp_Agent::Snmp_Agent()
 {
-    cmd_type = CMD_GET;
+    cmd_type = CMD_NONE;
 
     socket = new QLocalSocket(this);
     in = new QTextStream(socket);
@@ -77,15 +77,13 @@ void Snmp_Agent::write_to_socket(QString str)
 void Snmp_Agent::MIB_map_append(QString key, QString value)
 {
 oid_object_t obj;
-iterator_MIB_t it_MIB;
 
     obj.key   = key;
     obj.value = value;
 
-    it_MIB = find_index(key);
+    auto it_MIB = find_index(key);
     if(it_MIB == MIB_map.end()){
         MIB_map.append(obj);
-        pnt_MIB_map = MIB_map.end();
     }
     else{
         *it_MIB = obj;
@@ -120,29 +118,12 @@ void Snmp_Agent::set_mib_element_str(QString key, QString str)
     MIB_map_append(key, t);
 }
 
-
-iterator_MIB_t Snmp_Agent::find_index(QString key)
-{
-oid_object_t elm;
-iterator_MIB_t index;
-
-    index = MIB_map.begin();
-
-    foreach( elm,  MIB_map){
-        if((elm.key.compare(key, Qt::CaseInsensitive) == 0)) return index;
-        index++;
-    }
-
-    return MIB_map.end();
-}
-
 QString Snmp_Agent::get_oid_element(QString key)
 {
-iterator_MIB_t it_MIB;
 
     key.remove(OID_node + ".");
 
-    it_MIB = find_index(key);
+    auto it_MIB = find_index(key);
     if(it_MIB == MIB_map.end())
         return NONE;
     else
@@ -212,15 +193,8 @@ QString val;
     if(val != NONE) write_to_socket(str);
 
     write_to_socket(val);
+    cmd_type = CMD_NONE;
 }
-
-
-iterator_MIB_t Snmp_Agent::get_index(QString key)
-{
-    key.remove(OID_node_dot);
-    return find_index(key);
-}
-
 
 bool Snmp_Agent::device_node(QString str)
 {
@@ -243,19 +217,22 @@ void Snmp_Agent::cmd_set(QString str)
 
     write_to_socket(OK);
     set_val(iterator_to_set->key, str);
+    cmd_type = CMD_NONE;
 }
 
 
 void Snmp_Agent::cmd_get_next(QString str)
 {
-    if(pnt_MIB_map != MIB_map.end())
-        pnt_MIB_map++;
-
+    auto pnt_MIB_map = MIB_map.begin();
     if(str.compare(OID_node, Qt::CaseInsensitive) == 0)
         pnt_MIB_map = MIB_map.begin();
-
-    if(str.compare(OID_PROFITT, Qt::CaseInsensitive) == 0)
+    else if(str.compare(OID_PROFITT, Qt::CaseInsensitive) == 0)
         pnt_MIB_map = MIB_map.begin();
+    else{
+        pnt_MIB_map = get_index(str);
+        if(pnt_MIB_map != MIB_map.end())
+            pnt_MIB_map ++;
+    }
 
     if(pnt_MIB_map == MIB_map.end()){
         write_to_socket(NONE);
@@ -265,4 +242,5 @@ void Snmp_Agent::cmd_get_next(QString str)
     QString  key = OID_node + "." + pnt_MIB_map->key;
     write_to_socket(key);
     write_to_socket(pnt_MIB_map->value);
+    cmd_type = CMD_NONE;
 }

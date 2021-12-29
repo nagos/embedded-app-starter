@@ -49,15 +49,13 @@ void Vgpi_server::slotNewConnection()
     connect(pClientSocket, &QTcpSocket::readyRead,    this,          &Vgpi_server::slotReadClient);
     connect(pClientSocket, &QTcpSocket::disconnected, this,          &Vgpi_server::slotDisconnected);
 
-    QHostAddress peer_ip = pClientSocket->peerAddress();
-
     VgpiClientData * client = new VgpiClientData;
     client->socket = pClientSocket;
     client->state = VgpiClientData::STATE_HANDSHAKE;
 
     clientConnections << client;
 
-    signal_new_client(pClientSocket);
+    client->socket->write(handshakeBlock);
 }
 
 void Vgpi_server::sendClient(QTcpSocket* pSocket, QByteArray arrBlock)
@@ -82,11 +80,12 @@ int Vgpi_server::read_msg(VgpiClientData * client)
                 QByteArray data = client->socket->read(HANDSHAKE_SIZE);
                 if(handshake_check(data)){
                     client->state=VgpiClientData::STATE_WORK;
-                    client->socket->write(handshakeBlock);
+                    signal_new_client(client);
+                    ret = 1;
                 }else{
                     client->state=VgpiClientData::STATE_ERROR;
+                    client->socket->close();
                 }
-                ret = 1;
             }
             break;
         case VgpiClientData::STATE_WORK:
@@ -94,14 +93,14 @@ int Vgpi_server::read_msg(VgpiClientData * client)
                 QByteArray data = client->socket->peek(HEADER_SIZE);
                 int size = vgpi_get_packet_size(data);
                 if(client->socket->bytesAvailable()>=size){
-                    QByteArray data = client->socket->read(size);
-                    parse_message(data);
+                    QByteArray msg_data = client->socket->read(size);
+                    parse_message(msg_data);
                     ret = 1;
                 }
             }
             break;
         case VgpiClientData::STATE_ERROR:
-            client->socket->readAll();
+            client->socket->close();
             break;
     }
     return ret;
@@ -109,18 +108,17 @@ int Vgpi_server::read_msg(VgpiClientData * client)
 
 void Vgpi_server::sendToAllConnections(QByteArray arrBlock)
 {
-    foreach(VgpiClientData *clientConnection, clientConnections) {
+    for(VgpiClientData *clientConnection : clientConnections)
        clientConnection->socket->write(arrBlock);
-    }
 }
 
 VgpiClientData * Vgpi_server::getClietnData(QTcpSocket* socket)
 {
-    for(VgpiClientData * i : clientConnections){
-        if(socket==i->socket){
-            return i;
-        }
-    }
+    auto i = std::find_if(clientConnections.begin(), clientConnections.end(), 
+        [socket](VgpiClientData * c) {return c->socket==socket;}
+    );
+    if(i!=clientConnections.end())
+        return *i;
     Q_ASSERT(0);
     return 0;
 }

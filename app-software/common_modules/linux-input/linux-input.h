@@ -13,7 +13,8 @@ class LinuxInput: public QObject
 {
     Q_OBJECT
 public:
-    LinuxInput(QString fname);
+    enum {KBD_UP, KBD_DOWN, KBD_REPEAT};
+    explicit LinuxInput(QString fname);
 
 private slots:
     void slot_get_kbd();
@@ -23,7 +24,7 @@ private:
     QSocketNotifier *sn;
 
 protected:
-    virtual void key_event(uint16_t type, uint16_t code, uint32_t value){};
+    virtual void key_event(input_event dat){};
 };
 
 #endif // LINUX_INPUT

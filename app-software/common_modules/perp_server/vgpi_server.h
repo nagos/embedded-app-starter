@@ -29,7 +29,7 @@ private:
     void parse_message(QByteArray data);
 
 protected:
-    virtual void signal_new_client(QTcpSocket* pSocket){};
+    virtual void signal_new_client(VgpiClientData * client){};
     virtual void signal_pDisconnected(QTcpSocket* pSocket){};
     virtual void process_message(int type, int type_specific, int value){};
 
