@@ -79,15 +79,13 @@ protected:
                 QJsonArray jsonArray = get_value<QJsonArray>(data_obj, name);
                 if(ret.size()!=(uint)jsonArray.size())
                         return;
-                for(size_t i=0; i<N; i++)
-                        ret[i] = jsonArray[i].toInt();
+                std::transform(jsonArray.begin(), jsonArray.end(), ret.begin(),
+                        [](QJsonValueRef v){return v.toInt();}
+                );
         }
         template <size_t N, typename T> QJsonArray write_array(std::array<T,N> data){
                 QJsonArray ret;
-
-                for(T i : data)
-                        ret.append(i);
-
+                std::copy(data.begin(), data.end(), std::back_inserter(ret));
                 return ret;
         };
         virtual QByteArray api_req(QString url, QString  method, QByteArray body);
